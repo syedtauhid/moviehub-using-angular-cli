@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-genres-details',
-  templateUrl: './genres-details.component.html',
-  styleUrls: ['./genres-details.component.css']
+  selector: "app-genres-details",
+  templateUrl: "./genres-details.component.html",
+  styleUrls: ["./genres-details.component.scss"]
 })
 export class GenresDetailsComponent implements OnInit {
+  genreId: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private route: ActivatedRoute,  private router: Router) {
+    this.route.params.subscribe(res => this.genreId = res.id);
   }
 
+  ngOnInit() {
+    
+  }
+
+  gotoMovieDetails(postId: string) {
+    this.router.navigate(['genre/'+postId+'/movies']);
+  }
 }
