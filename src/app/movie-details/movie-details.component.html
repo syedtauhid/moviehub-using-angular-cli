@@ -1,3 +1,94 @@
-<p>
-  movie-details works!
-</p>
+<div class="row">
+  <div class="col-md-12" id="coverImg" [style.background-image]="'url(https://image.tmdb.org/t/p/w1280/5pAGnkFYSsFJ99ZxDIYnhQbQFXs.jpg)'">
+    <div class="director-details">
+      <img src="https://cdn.pixabay.com/photo/2014/07/14/07/40/marilyn-monroe-392933_960_720.jpg" alt="" id="director_logo">
+      <p>Syed Tauhid Ahmed</p>
+      <i class="fa fa-camera "></i>
+      <small>Director</small>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-md-4 bg-white">
+    <div class="poster-img">
+      <img class="pt-1 pb-1" src="https://image.tmdb.org/t/p/w342/kqjL17yufvn9OVLyXYpvtyrFfak.jpg" />
+    </div>
+  </div>
+  <div class="col-md-8 bg-white">
+    <h5>Dark night rises (2012)</h5>
+    <small class="text-muted"> Led by Woody, Andy's toys live happily in his room until Andy's birthday brings Buzz Lightyear onto the scene. Afraid
+      of losing his place in Andy's heart, Woody plots against Buzz. But when circumstances separate Buzz and Woody from
+      their owner, the duo eventually learns to put aside their differences. </small>
+    <div class="row">
+      <div class="col-md-3 text-center">
+          <circle-progress
+          [percent]="percent"
+          [subtitleFormat] = "formatSubtitle"
+          [title] = "rating"
+          [radius]="60"
+          [outerStrokeWidth]="8"
+          [innerStrokeWidth]="4"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="300"
+        ></circle-progress>
+      </div>
+      <div class="col-md-4 border-dark">
+          <span class="text-success">Total Budget:</span> 30M <br>
+          <span class="text-success">Revinue:</span> 35M <br>
+          <span class="text-success">Release:</span> 12/13/15 <br>
+          <kbd>Action</kbd> <kbd>Comedy</kbd>  <kbd>Comedy</kbd> <kbd>Fantasy</kbd><br>
+          <small class="text-muted">Production by</small>
+          <img src="https://image.tmdb.org/t/p/w92/1TjvGVDMYsj6JBxOAkUHpPEwLf7.png" alt="">
+      </div>
+      <div class="col-md-5">
+          <iframe src="https://www.youtube.com/embed/iHhcHTlGtRs" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+          <tabset>
+              <tab heading="Cast" id="tab1">
+                <div class="table-responsive-sm" class="crew-cast-table">
+                  <table class="table table-striped table-hover">
+                    <tbody>
+                      <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                      </tr>
+                      <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </tab>
+              <tab heading="Crew">
+                <div class="table-responsive-sm" class="crew-cast-table">
+                  <table class="table table-striped table-hover">
+                    <tbody>
+                      <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                      </tr>
+                      <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </tab>
+            </tabset>
+      
+      </div>
+    </div>
+  </div>
+</div>

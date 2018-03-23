@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ThirdPartyModule } from './third.party.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
@@ -18,7 +19,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ThirdPartyModule
   ],
   providers: [],
   bootstrap: [AppComponent]

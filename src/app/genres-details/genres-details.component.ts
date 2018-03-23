@@ -18,7 +18,7 @@ export class GenresDetailsComponent implements OnInit {
     
   }
 
-  gotoMovieDetails(postId: string) {
-    this.router.navigate(['genre/'+postId+'/movies']);
+  gotoMovieDetails(movieId: string) {
+    this.router.navigate(['movie', movieId]);
   }
 }
