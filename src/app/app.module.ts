@@ -12,6 +12,7 @@ import { HomeComponent } from "./home/home.component";
 import { GenresDetailsComponent } from "./genres-details/genres-details.component";
 import { MovieDetailsComponent } from "./movie-details/movie-details.component";
 import { DataService } from "./_services/index";
+import { KeysPipe } from "./_pipes/arraykey.pipe";
 
 
 @NgModule({
@@ -19,14 +20,15 @@ import { DataService } from "./_services/index";
     AppComponent,
     HomeComponent,
     GenresDetailsComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule, 
     AppRoutingModule, 
     ThirdPartyModule,
     HttpClientModule,
-    PapaParseModule
+    PapaParseModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
