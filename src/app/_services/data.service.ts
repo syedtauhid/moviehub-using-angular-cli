@@ -7,9 +7,12 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
     constructor(private http: HttpClient) { }
 
-    getAll() {
+    getAllMovies() {
         return this.http.get('/assets/data/movies.csv',{responseType: 'text'});
     }
 
-    // localStorage.setItem('currentUser', JSON.stringify(user));
+    getAllMovieLinks(){
+        return this.http.get('/assets/data/links.csv',{responseType: 'text'});
+    }
+
 }

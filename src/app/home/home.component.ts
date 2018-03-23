@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { PapaParseService } from "ngx-papaparse";
 import { DataService } from "../_services/index";
 
 @Component({
@@ -7,19 +9,31 @@ import { DataService } from "../_services/index";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
+  movieList: any;
+  movieLinks: any;
+  genres: any = [];
 
-
-  constructor(private dataServices: DataService) {}
+  constructor(private route: ActivatedRoute, private papa: PapaParseService) {}
 
   ngOnInit() {
-    this.dataServices.getAll().subscribe(
-      data => {
-        console.log("success");
-        console.log(data);
-      },
-      error => {
-        console.log("error");
-        console.log(error);
-      });
+    this.movieList = this.route.snapshot.data.movies;
+    this.movieLinks = this.route.snapshot.data.links;
+    this.parseCSVData();
+    
   }
+
+  parseCSVData() {
+    this.papa.parse(this.movieList, {
+      header: true,
+      dynamicTyping: true,
+      complete: result => this.movieList = result.data
+    });
+    this.papa.parse(this.movieList, {
+      header: true,
+      dynamicTyping: true,
+      complete: result => this.movieList = result.data
+    });
+  }
+
+
 }
