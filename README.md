@@ -1,27 +1,23 @@
-# MovieListSite
+# MovieListSite Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+The Client side of Movie Listing site. This project was build with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+First clone and run the [Backend](https://bitbucket.org/tauhidkuet/movie-hub-project-server) server. Then Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-## Code scaffolding
+## Movies Page (Phase 1):
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Hit `http://localhost:4200/movies` in your browser to view the All Genres listing and for each Genre 3 random movie view will be appeared.
 
-## Build
+## Genre with Top movies Page (Phase 2):
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Hit `http://localhost:4200/genre/{genre_id}` in your browser to view the top 30 movies of that Genre. You can also navigate from the `home` page by clicking on the Heading(Genres).
 
-## Running unit tests
+## Genre with Top movies Page (Phase 3):
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Hit `http://localhost:4200/movie/{movie_id}` in your browser to view movie details page. You can also navigate from the `home` page and also from the `Genres details` page by clicking on any movie posters.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
