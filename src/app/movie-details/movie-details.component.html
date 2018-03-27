@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12" id="coverImg" [style.background-image]="'url(' + prepareCoverImgPath(movieDetails.backdropPath) + ')'">
     <div class="director-details">
-      <img [src]="prepareDirectorImg(director.profile_path)" alt="" id="director_logo">
+      <div class="profile-img" [style.background-image]="'url(' + prepareDirectorImg(director.profile_path) + ')'"></div>
       <p>{{director.name}}</p>
       <i class="fa fa-camera "></i>
       <small>{{director.job}}</small>
@@ -10,74 +10,95 @@
 </div>
 
 <div class="row mt-3">
-  <div class="col-md-4 bg-white">
-    <div class="poster-img mt-2">
+  <div class="col-md-4 bg-white pt-2">
+    <div class="poster-img">
       <img class="pt-1" [src]="preparePosterImgPath(movieDetails.posterImg)" />
     </div>
   </div>
-  <div class="col-md-8 bg-white">
-    <h5>{{movieDetails.title}}</h5>
+  <div class="col-md-8 bg-white movie-info pt-2">
+    <h5>{{movieDetails.title}}
+      <a [href]="'https://imdb.com/title/' + movieDetails.imdbId" target="_blank" class="text-success"
+        tooltip=" View on IMDB">
+        <i class="fa fa-external-link"></i>
+      </a>
+    </h5>
     <small class="text-muted"> {{movieDetails.overview}}</small>
     <div class="row mt-2">
       <div class="col-md-3 text-center">
-          <circle-progress
-          [percent]="movieDetails.imdbRating * 10"
-          [subtitleFormat] = "formatSubtitle"
-          [title] = "movieDetails.imdbRating + ratingStar"
-          [radius]="60"
-          [outerStrokeWidth]="8"
-          [innerStrokeWidth]="4"
-          [outerStrokeColor]="'#78C000'"
-          [innerStrokeColor]="'#C7E596'"
-          [animation]="true"
-          [animationDuration]="300"
-        ></circle-progress>
+        <circle-progress [percent]="movieDetails.imdbRating * 10" [subtitleFormat]="formatSubtitle" [title]="movieDetails.imdbRating + ratingStar"
+          [radius]="60" [outerStrokeWidth]="8" [innerStrokeWidth]="4" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
+          [animation]="true" [animationDuration]="300"></circle-progress>
       </div>
       <div class="col-md-4 budget-section border-dark">
-          <span class="text-success">Total Budget:</span> {{movieDetails.budget}} <br>
-          <span class="text-success">Revinue:</span> {{movieDetails.revenue}} <br>
-          <div class="genres-list">
-            <kbd *ngFor="let genre of movieDetails.genres.split('|')">{{genre}}</kbd>
-          </div>
-           <br>
-          <small class="text-muted">Production by</small>
+        <span class="text-success">Total Budget:</span> {{ammountFormat(movieDetails.budget)}}
+        <br>
+        <span class="text-success">Revinue:</span> {{ammountFormat(movieDetails.revenue)}}
+        <br>
+        <div class="genres-list" *ngFor="let genre of movieDetails.genres.split('|')">
+          <kbd class="genres">{{genre}}</kbd>
+        </div>
+        <div style="clear:both;">
           <img src="https://image.tmdb.org/t/p/w92/1TjvGVDMYsj6JBxOAkUHpPEwLf7.png" alt="">
+        </div>
+
       </div>
       <div class="col-md-5" *ngIf="embeddedUrl">
-          <iframe [src]="embeddedUrl | safe" frameborder="0" allowfullscreen></iframe>
+        <iframe [src]="embeddedUrl | safe" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-          <tabset>
-              <tab heading="Cast" id="tab1">
-                <div class="table-responsive-sm" class="crew-cast-table">
-                  <table class="table table-striped table-hover">
-                    <tbody>
-                      <tr *ngFor="let cast of casts;let i = index">
-                        <td><img [src]="prepareDirectorImg(cast.profile_path)" alt=""></td>
-                        <td>{{cast.name}}</td>
-                        <td>{{cast.character}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </tab>
-              <tab heading="Crew">
-                <div class="table-responsive-sm" class="crew-cast-table">
-                  <table class="table table-striped table-hover">
-                    <tbody>
-                      <tr *ngFor="let crew of crews">
-                        <td><img [src]="prepareDirectorImg(crew.profile_path)" alt="No image"></td>
-                        <td>{{crew.name}}</td>
-                        <td>{{crew.department}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </tab>
-            </tabset>
-      
+        <tabset>
+          <tab heading="Cast" id="tab1">
+            <div class="table-responsive-sm" class="crew-cast-table">
+              <table class="table table-striped table-hover">
+                <tbody>
+                  <tr *ngFor="let cast of casts;let i = index">
+                    <td>
+                      <img [src]="prepareDirectorImg(cast.profile_path)" alt="">
+                    </td>
+                    <td>{{cast.name}}</td>
+                    <td>{{cast.character}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </tab>
+          <tab heading="Crew">
+            <div class="table-responsive-sm" class="crew-cast-table">
+              <table class="table table-striped table-hover">
+                <tbody>
+                  <tr *ngFor="let crew of crews">
+                    <td>
+                      <img [src]="prepareDirectorImg(crew.profile_path)" alt="No image">
+                    </td>
+                    <td>{{crew.name}}</td>
+                    <td>{{crew.department}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </tab>
+        </tabset>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="pl-3 pt-3 bg-white full-width">
+    <h5 class="text-success"><i class="fa fa-clone"></i> Related Movies</h5>
+  </div>
+  <div class="related-movies">
+    <div class="col-md-2" *ngFor="let movie of relatedMovies">
+      <div class="card" (click)="gotoMovieDetails(movie.id)">
+        <div class="poster">
+          <img class="card-img-top" [src]="preparePosterImgPath(movie.posterImg)" alt="movie">
+          <div class="overlay">
+            <div class="text">{{ movie.title }}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

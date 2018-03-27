@@ -34,4 +34,9 @@ export class DataService {
         return this.http.get(endpoint);
     }
 
+    getRelatedMovies(id) {
+        let endpoint = this.apiEndpoint + "/related/movies/" + id;
+        return this.http.get(endpoint);
+    }
+
 }
