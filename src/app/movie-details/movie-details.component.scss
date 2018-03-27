@@ -23,9 +23,23 @@
     }
 }
 
+
+.budget-section {
+    line-height: 2;
+    .genres-list {
+        width: 100%;
+        kbd {
+            margin-right: 2px;
+        }
+    }
+}
+
 .crew-cast-table {
-    max-height: 245px;
+    max-height: 240px;
     overflow-y: auto;
+    img {
+        max-width: 50px;
+    }
 }
 
 .poster-img {

@@ -12,6 +12,7 @@ import { GenresDetailsComponent } from "./genres-details/genres-details.componen
 import { MovieDetailsComponent } from "./movie-details/movie-details.component";
 import { DataService } from "./_services/index";
 import { KeysPipe } from "./_pipes/arraykey.pipe";
+import { SafePipe } from "./_pipes/safe.pipe";
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { KeysPipe } from "./_pipes/arraykey.pipe";
     HomeComponent,
     GenresDetailsComponent,
     MovieDetailsComponent,
-    KeysPipe
+    KeysPipe,
+    SafePipe
+
   ],
   imports: [
     BrowserModule, 

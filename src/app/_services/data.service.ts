@@ -24,4 +24,14 @@ export class DataService {
         return this.http.get(endpoint);
     }
 
+    getCrewDetails(id) {
+        let endpoint = this.apiEndpoint + "/cast-crew/" + id;
+        return this.http.get(endpoint);
+    }
+
+    getTrailerVideo(id) {
+        let endpoint = this.apiEndpoint + "/trailer/" + id;
+        return this.http.get(endpoint);
+    }
+
 }

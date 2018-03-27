@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { GenresDetailsComponent } from "./genres-details/genres-details.component";
 import { MovieDetailsComponent } from "./movie-details/movie-details.component";
-import { MovieListByGenresResolve, GenreDetailsResolve } from './_resolve/index';
+import { MovieListByGenresResolve, GenreDetailsResolve, MovieDetailsResolve } from './_resolve/index';
 
 const routes: Routes = [
   {
@@ -18,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: "movie/:id",
-    component: MovieDetailsComponent
+    component: MovieDetailsComponent,
+    resolve: { details: MovieDetailsResolve  }
   },
 
   { path: '**', redirectTo: 'movies' }
@@ -30,6 +31,7 @@ const routes: Routes = [
   providers: [
     MovieListByGenresResolve,
     GenreDetailsResolve,
+    MovieDetailsResolve,
   ]
 })
 
