@@ -4,7 +4,7 @@
 </h3>
 <div class="genre-movies">
   <div class="col-md-2" *ngFor="let movie of genresDetails.movies">
-    <div class="card" (click) = "gotoMovieDetails(movie.movieId)">
+    <div class="card" (click) = "gotoMovieDetails(movie.id)">
       <div class="poster">
         <img class="card-img-top" [src]="preparePosterImgPath(movie.posterImg)" alt="movie">
         <div class="overlay">

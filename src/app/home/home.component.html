@@ -2,7 +2,7 @@
   <h3 class="mb-3"><kbd (click)="gotoGenreDetailsPage(genre.id)"><i class="fa fa-object-group"></i> {{ genre.name }} </kbd></h3>
   <div class="row">
     <div class="col-md-4" *ngFor="let movie of genre.movies">
-      <div class="card border-dark" (click)="gotoMovieDetailsPage(movie.movieId)">
+      <div class="card border-dark" (click)="gotoMovieDetailsPage(movie.id)">
         <div class="card-img-poster" [style.background-image]="'url(' + preparePosterImgPath(movie.posterImg) + ')'" alt="poster"></div>
         <div class="card-body">
           <p class="card-text">
