@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Router, NavigationEnd } from "@angular/router";
-import { DataService } from "../_services/index";
+import { DataService, MovieVisitStorageService } from "../_services/index";
 
 @Component({
   selector: "app-movie-details",
@@ -24,7 +24,8 @@ export class MovieDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private dataService: DataService
+    private dataService: DataService,
+    private movieVisitStorageService: MovieVisitStorageService
   ) {
     this.overrideRouteReUseStrategy();
   }
@@ -32,6 +33,7 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit() {
     this.movieDetails = this.route.snapshot.data.details;
     this.getMovieRelatedInfo();
+    this.movieVisitStorageService.addMovieToRecentyVisited(this.movieDetails);
   }
 
   processCastAndCrewData(data) {

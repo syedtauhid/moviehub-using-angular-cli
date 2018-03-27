@@ -10,7 +10,7 @@ import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
 import { GenresDetailsComponent } from "./genres-details/genres-details.component";
 import { MovieDetailsComponent } from "./movie-details/movie-details.component";
-import { DataService } from "./_services/index";
+import { DataService, MovieVisitStorageService } from "./_services/index";
 import { KeysPipe } from "./_pipes/arraykey.pipe";
 import { SafePipe } from "./_pipes/safe.pipe";
 
@@ -31,7 +31,7 @@ import { SafePipe } from "./_pipes/safe.pipe";
     ThirdPartyModule,
     HttpClientModule,
   ],
-  providers: [DataService],
+  providers: [DataService, MovieVisitStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

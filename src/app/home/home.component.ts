@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { MovieVisitStorageService } from "../_services/index";
 
 
 @Component({
@@ -9,13 +10,15 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 
 export class HomeComponent implements OnInit {
+  recentlyVisited: any;
   genresList: any = [];
   tmdbPosterImgEndpoint:string = "https://image.tmdb.org/t/p/w342";
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router, private movieVisitStorageService: MovieVisitStorageService) {}
 
   ngOnInit() {
     this.genresList = this.route.snapshot.data.moviesByGenres;
+    this.recentlyVisited = this.movieVisitStorageService.getAllRecentMovieData();
   }
 
   preparePosterImgPath(path) {
