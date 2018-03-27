@@ -1,14 +1,15 @@
-<div class="genresContainer" *ngFor="let genre of genresList | keys;">
-  <h4>{{ genre }}</h4>
+<div class="genresContainer" *ngFor="let genre of genresList">
+  <h3 class="mb-3"><kbd (click)="gotoGenreDetailsPage(genre.id)"><i class="fa fa-object-group"></i> {{ genre.name }} </kbd></h3>
   <div class="row">
-    <div class="col-md-4" *ngFor="let movie of prepareRandomMovies(genre)">
-      <div class="card border-dark">
-        <img class="card-img-top" [src]="movie.posterImg" alt="poster">
+    <div class="col-md-4" *ngFor="let movie of genre.movies">
+      <div class="card border-dark" (click)="gotoMovieDetailsPage(movie.movieId)">
+        <div class="card-img-poster" [style.background-image]="'url(' + preparePosterImgPath(movie.posterImg) + ')'" alt="poster"></div>
         <div class="card-body">
           <p class="card-text">
-            <span class="fa fa-address-book"></span> {{movie.title}}
+            <span class="fa fa-film"></span> {{movie.title }}
           </p>
         </div>
       </div>
     </div>
   </div>
+</div>

@@ -4,7 +4,6 @@ import { NgModule } from "@angular/core";
 import { ThirdPartyModule } from "./third.party.module";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from "./app.routing";
-import { PapaParseModule } from 'ngx-papaparse';
 
 import { AppComponent } from "./app.component";
 
@@ -28,7 +27,6 @@ import { KeysPipe } from "./_pipes/arraykey.pipe";
     AppRoutingModule, 
     ThirdPartyModule,
     HttpClientModule,
-    PapaParseModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
