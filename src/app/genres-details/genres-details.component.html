@@ -1,12 +1,13 @@
 <h3 class="text-center display-4 mb-2 p-3 bg-white">
   <i class="fa fa-film"></i> Top
-  <code>{{genresDetails.name}}</code> films
+  <code>{{genresDetails.name}}</code> movies
 </h3>
 <div class="genre-movies">
   <div class="col-md-2" *ngFor="let movie of genresDetails.movies">
     <div class="card" (click) = "gotoMovieDetails(movie.id)">
       <div class="poster">
         <img class="card-img-top" [src]="preparePosterImgPath(movie.posterImg)" alt="movie">
+        <div class="movie-rating bg-success"> <span> {{movie.imdbRating}} ★</span></div>
         <div class="overlay">
           <div class="text">{{ movie.title }}</div>
         </div>

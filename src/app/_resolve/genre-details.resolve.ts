@@ -9,7 +9,6 @@ export class GenreDetailsResolve implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot) {
     let id = route.paramMap.get('id');
-    console.log(id);
     return this.dataService.getGenreDetails(id);
   }
 }
